@@ -11,6 +11,7 @@ export class UserService extends BaseServiceAbstract<User> {
 
   async getAllUsers() {
     const result = await this.userRepository.findAll({})
+    console.log('a')
     return result
   }
 }
