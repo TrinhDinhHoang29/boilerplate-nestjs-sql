@@ -5,4 +5,5 @@ async function bootstrap(): Promise<void> {
   const app = await NestFactory.create(AppModule)
   await app.listen(process.env.PORT ?? 8080)
 }
-bootstrap()
+
+void bootstrap()
