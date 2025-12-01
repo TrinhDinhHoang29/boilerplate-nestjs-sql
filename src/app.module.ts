@@ -1,7 +1,7 @@
 import { UserModule } from '@modules/users/user.module'
 import { Module } from '@nestjs/common'
-import { EnvConfigModule } from '@src/configs/env-config.module'
-import { DatabaseModule } from '@src/shared/database/database.module'
+import { EnvConfigModule } from '@src/infrastructures/configs/env-config.module'
+import { DatabaseModule } from '@src/infrastructures/database/database.module'
 
 @Module({
   imports: [EnvConfigModule, DatabaseModule, UserModule],

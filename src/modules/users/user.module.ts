@@ -1,14 +1,14 @@
 import { UserControllerV1 } from '@modules/users/controllers/v1/user.controller'
-import { UserService } from '@modules/users/services/user.service'
+import { UserProviders } from '@modules/users/providers/user.provider'
+import { userTokens } from '@modules/users/tokens'
 import { Module } from '@nestjs/common'
 import { TypeOrmModule } from '@nestjs/typeorm'
-import { User } from '@shared/entities/user.entity'
-import { UserRepository } from '@shared/repositories/user.repository'
+import { User } from '@src/core/entities/user.entity'
 
 @Module({
   imports: [TypeOrmModule.forFeature([User])],
   controllers: [UserControllerV1],
-  providers: [UserService, { provide: 'UserRepositoryInterface', useClass: UserRepository }],
-  exports: [UserService],
+  providers: [...UserProviders],
+  exports: [...userTokens],
 })
 export class UserModule {}

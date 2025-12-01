@@ -1,15 +1,15 @@
-import { FindAllResponse } from '@src/types/common.type'
+import { FindAllResponse } from '@shared/types/common.type'
 import { FindOptionsWhere } from 'typeorm'
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js'
 
-export interface BaseRepositoryInterface<T> {
+export interface IBaseRepository<T> {
   create(dto: T): Promise<T>
 
   findOneById(id: string, projection?: string): Promise<T | null>
 
   findOneByCondition(condition?: FindOptionsWhere<T>, projection?: string): Promise<T | null>
 
-  findAll(condition: object, options?: object): Promise<FindAllResponse<T | null>>
+  findAll(condition: object, options?: object): Promise<FindAllResponse<T>>
 
   update(id: string, dto: QueryDeepPartialEntity<T>): Promise<T | null>
 

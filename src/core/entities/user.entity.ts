@@ -1,6 +1,6 @@
-import { BaseEntity } from '@shared//entities/base/base.entity'
-import { Project } from '@src/shared/entities/project.entity'
-import { Task } from '@src/shared/entities/task.entity'
+import { BaseEntity } from '@src/core/entities/base/base.entity'
+import { Project } from '@src/core/entities/project.entity'
+import { Task } from '@src/core/entities/task.entity'
 import { Entity, Column, OneToMany } from 'typeorm'
 
 @Entity('users')

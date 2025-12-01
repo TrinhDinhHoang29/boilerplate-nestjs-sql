@@ -1,16 +1,18 @@
-import { UserService } from '@modules/users/services/user.service'
-import { Controller, Get } from '@nestjs/common'
+import type { IGetFilterUsersService } from '@modules/users/interfaces/get-filter-users.interface'
+import { GET_FILTER_USERS } from '@modules/users/tokens'
+import { Controller, Get, Inject, Query } from '@nestjs/common'
 
 @Controller({
   path: 'users',
   version: '1',
 })
 export class UserControllerV1 {
-  constructor(private readonly userService: UserService) {}
+  constructor(@Inject(GET_FILTER_USERS) private readonly getFilterUsers: IGetFilterUsersService) {}
 
   @Get()
-  async getAll() {
-    const data = await this.userService.getAllUsers()
+  async getAll(@Query('limit') limit: number) {
+    const data = await this.getFilterUsers.execute(limit)
+
     return {
       ...data,
     }

@@ -1,6 +1,6 @@
-import { BaseEntity } from '@shared//entities/base/base.entity'
-import { Project } from '@src/shared/entities/project.entity'
-import { User } from '@src/shared/entities/user.entity'
+import { BaseEntity } from '@src/core/entities/base/base.entity'
+import { Project } from '@src/core/entities/project.entity'
+import { User } from '@src/core/entities/user.entity'
 import { Entity, Column, ManyToOne, JoinColumn } from 'typeorm'
 
 // Định nghĩa Enum cho trạng thái task

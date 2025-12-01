@@ -1,11 +1,9 @@
-import { BaseEntity } from '@shared/entities/base/base.entity'
-import { BaseRepositoryInterface } from '@shared/repositories/base/base.interface.repository'
+import { BaseEntity } from '@src/core/entities/base/base.entity'
+import { IBaseRepository } from '@src/core/repositories/base/base.interface.repository'
 import { Repository, FindOptionsWhere } from 'typeorm'
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js'
 
-export abstract class BaseRepositoryAbstract<T extends BaseEntity>
-  implements BaseRepositoryInterface<T>
-{
+export abstract class BaseRepositoryAbstract<T extends BaseEntity> implements IBaseRepository<T> {
   protected readonly repository: Repository<T>
 
   constructor(repository: Repository<T>) {

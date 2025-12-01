@@ -1,4 +1,4 @@
-import { FindAllResponse } from 'src/types/common.type'
+import { FindAllResponse } from '@shared/types/common.type'
 import { QueryDeepPartialEntity } from 'typeorm/query-builder/QueryPartialEntity.js'
 
 export interface Write<T> {
@@ -8,7 +8,7 @@ export interface Write<T> {
 }
 
 export interface Read<T> {
-  findAll(filter?: object, options?: object): Promise<FindAllResponse<T | null>>
+  findAll(filter?: object, options?: object): Promise<FindAllResponse<T>>
   findOne(id: string): Promise<T | null>
 }
 

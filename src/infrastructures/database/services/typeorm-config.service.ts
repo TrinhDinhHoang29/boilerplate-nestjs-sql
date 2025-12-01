@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { TypeOrmModuleOptions, TypeOrmOptionsFactory } from '@nestjs/typeorm'
-import { EnvConfigService } from '@src/configs/services/env-config.service'
+import { EnvConfigService } from '@src/infrastructures/configs/services/env-config.service'
 import * as path from 'path'
 
 @Injectable()
@@ -10,7 +10,7 @@ export class TypeormConfigService implements TypeOrmOptionsFactory {
     return {
       type: 'postgres',
       ...this.envConfigService.databaseConfig,
-      entities: [path.join(__dirname, '../../entities/*.entity{.ts,.js}')],
+      entities: [path.join(__dirname, '../../../core/entities/*.entity{.ts,.js}')],
       synchronize: true,
     }
   }
